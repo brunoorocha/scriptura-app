@@ -11,7 +11,7 @@ import SwiftUI
 struct ScripturaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ReaderView(viewModel: ReaderViewModel(chapterRepository: MockChapterRepository(), bookRepository: MockBooksRepository()))
         }
     }
 }
