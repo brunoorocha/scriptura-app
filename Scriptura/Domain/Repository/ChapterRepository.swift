@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ChapterRepository {
-    func getChapter(_ chapterNumber: Int, fromBook book: Book) async throws -> Chapter
+    func getChapter(_ chapterNumber: Int, fromBook book: Book, version: String) async throws -> Chapter
 }

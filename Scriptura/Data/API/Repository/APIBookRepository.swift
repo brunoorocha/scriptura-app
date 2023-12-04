@@ -15,6 +15,6 @@ final class APIBookRepository: BookRepository {
     }
     
     func allBooks() async throws -> [Book] {
-        return try await service.apiRequest(.books)
+        return try await service.request(.books)
     }
 }

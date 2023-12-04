@@ -8,9 +8,10 @@
 import Foundation
 
 struct MockChapterRepository: ChapterRepository {
-    func getChapter(_ chapterNumber: Int, fromBook book: Book) async throws -> Chapter {
+    func getChapter(_ chapterNumber: Int, fromBook book: Book, version: String) async throws -> Chapter {
         return Chapter(
-            book: Book(name: "Gênesis", author: "Moisés", numberOfChapters: 50, group: "Pentatêuco", testament: "VT"),
+            book: "Gênesis",
+            version: "nvi",
             number: 1,
             numberOfVerses: 31,
             verses: [

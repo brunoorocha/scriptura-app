@@ -37,7 +37,7 @@ class ReaderViewModel: ObservableObject {
     private func setChapter(_ chapterNumber: Int, fromBook book: String) async {
         do {
             guard let bookModel = await bookNamed(book) else { return }
-            let chapter = try await chapterRepository.getChapter(chapterNumber, fromBook: bookModel)
+            let chapter = try await chapterRepository.getChapter(chapterNumber, fromBook: bookModel, version: "nvi")
             verses = chapter.verses.map(ReaderVerseItem.fromDomainVerse(_:))
             headerText = "\(book) \(chapterNumber)"
         } catch {

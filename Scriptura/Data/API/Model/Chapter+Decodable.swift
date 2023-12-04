@@ -13,6 +13,11 @@ extension Chapter: Decodable {
         case chapter
         case verses
     
+        enum BookCodingKeys: String, CodingKey {
+            case name
+            case version
+        }
+        
         enum ChapterCodingKeys: String, CodingKey {
             case number
             case verses
@@ -21,8 +26,11 @@ extension Chapter: Decodable {
 
     init(from decoder: Decoder) throws {
         let rootContainer = try decoder.container(keyedBy: CodingKeys.self)
+        let bookContainer = try rootContainer.nestedContainer(keyedBy: CodingKeys.BookCodingKeys.self, forKey: .book)
         let chapterContainer = try rootContainer.nestedContainer(keyedBy: CodingKeys.ChapterCodingKeys.self, forKey: .chapter)
-        book = try rootContainer.decode(Book.self, forKey: .book)
+
+        book = try bookContainer.decode(String.self, forKey: .name)
+        version = try bookContainer.decode(String.self, forKey: .version)
         numberOfVerses = try chapterContainer.decode(Int.self, forKey: .verses)
         number = try chapterContainer.decode(Int.self, forKey: .number)
         verses = try rootContainer.decode([Verse].self, forKey: .verses)

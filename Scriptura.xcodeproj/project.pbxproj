@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A36958222B1E3E430002BDDF /* verses.json in Resources */ = {isa = PBXBuildFile; fileRef = A36958212B1E3E430002BDDF /* verses.json */; };
+		A36958242B1E3E920002BDDF /* APIChapterRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36958232B1E3E920002BDDF /* APIChapterRepositoryTests.swift */; };
 		A382729C2B175926009CBF25 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729B2B175926009CBF25 /* ReaderViewModel.swift */; };
 		A382729E2B175E90009CBF25 /* ChapterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729D2B175E90009CBF25 /* ChapterRepository.swift */; };
 		A38272A02B175F12009CBF25 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729F2B175F12009CBF25 /* Chapter.swift */; };
@@ -25,6 +27,8 @@
 		A38272C22B17C6DB009CBF25 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272C12B17C6DB009CBF25 /* MockURLProtocol.swift */; };
 		A38272C42B19199A009CBF25 /* BookListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272C32B19199A009CBF25 /* BookListItemView.swift */; };
 		A38272CA2B1A01FC009CBF25 /* BooksViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272C92B1A01FC009CBF25 /* BooksViewModelTests.swift */; };
+		A38272CC2B1BC520009CBF25 /* APIChapterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272CB2B1BC520009CBF25 /* APIChapterRepository.swift */; };
+		A38272CE2B1BC992009CBF25 /* VersesAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38272CD2B1BC992009CBF25 /* VersesAPIRequest.swift */; };
 		A3AD4C182B164B9100FDDAB0 /* ScripturaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD4C172B164B9100FDDAB0 /* ScripturaApp.swift */; };
 		A3AD4C1A2B164B9100FDDAB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD4C192B164B9100FDDAB0 /* ContentView.swift */; };
 		A3AD4C1C2B164B9200FDDAB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3AD4C1B2B164B9200FDDAB0 /* Assets.xcassets */; };
@@ -60,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A36958212B1E3E430002BDDF /* verses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verses.json; sourceTree = "<group>"; };
+		A36958232B1E3E920002BDDF /* APIChapterRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChapterRepositoryTests.swift; sourceTree = "<group>"; };
 		A382729B2B175926009CBF25 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
 		A382729D2B175E90009CBF25 /* ChapterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterRepository.swift; sourceTree = "<group>"; };
 		A382729F2B175F12009CBF25 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 		A38272C12B17C6DB009CBF25 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		A38272C32B19199A009CBF25 /* BookListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListItemView.swift; sourceTree = "<group>"; };
 		A38272C92B1A01FC009CBF25 /* BooksViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModelTests.swift; sourceTree = "<group>"; };
+		A38272CB2B1BC520009CBF25 /* APIChapterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChapterRepository.swift; sourceTree = "<group>"; };
+		A38272CD2B1BC992009CBF25 /* VersesAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersesAPIRequest.swift; sourceTree = "<group>"; };
 		A3AD4C142B164B9100FDDAB0 /* Scriptura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scriptura.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AD4C172B164B9100FDDAB0 /* ScripturaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScripturaApp.swift; sourceTree = "<group>"; };
 		A3AD4C192B164B9100FDDAB0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				A38272B72B17C214009CBF25 /* APIBookRepositoryTests.swift */,
+				A36958232B1E3E920002BDDF /* APIChapterRepositoryTests.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A38272BA2B17C3CA009CBF25 /* books.json */,
+				A36958212B1E3E430002BDDF /* verses.json */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -321,6 +331,7 @@
 				A38272A32B1761FE009CBF25 /* Chapter+Decodable.swift */,
 				A38272B02B17A8FA009CBF25 /* APIRequest.swift */,
 				A38272B22B17AB9C009CBF25 /* BooksAPIRequest.swift */,
+				A38272CD2B1BC992009CBF25 /* VersesAPIRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				A38272A92B17A3FB009CBF25 /* APIBookRepository.swift */,
+				A38272CB2B1BC520009CBF25 /* APIChapterRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -495,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38272BB2B17C3CA009CBF25 /* books.json in Resources */,
+				A36958222B1E3E430002BDDF /* verses.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,10 +537,12 @@
 				A3AD4C1A2B164B9100FDDAB0 /* ContentView.swift in Sources */,
 				A3AD4C5A2B16520300FDDAB0 /* BookListItem.swift in Sources */,
 				A3AD4C4C2B164E2B00FDDAB0 /* BookRepository.swift in Sources */,
+				A38272CE2B1BC992009CBF25 /* VersesAPIRequest.swift in Sources */,
 				A38272A62B17688E009CBF25 /* MockChapterRepository.swift in Sources */,
 				A38272A22B176013009CBF25 /* Verse.swift in Sources */,
 				A38272A42B1761FE009CBF25 /* Chapter+Decodable.swift in Sources */,
 				A38272A02B175F12009CBF25 /* Chapter.swift in Sources */,
+				A38272CC2B1BC520009CBF25 /* APIChapterRepository.swift in Sources */,
 				A3AD4C552B1650BA00FDDAB0 /* BooksView.swift in Sources */,
 				A3AD4C182B164B9100FDDAB0 /* ScripturaApp.swift in Sources */,
 				A3AD4C522B16500200FDDAB0 /* MockBooksRepository.swift in Sources */,
@@ -543,6 +558,7 @@
 			files = (
 				A3AD4C292B164B9200FDDAB0 /* ScripturaTests.swift in Sources */,
 				A38272B82B17C214009CBF25 /* APIBookRepositoryTests.swift in Sources */,
+				A36958242B1E3E920002BDDF /* APIChapterRepositoryTests.swift in Sources */,
 				A38272C22B17C6DB009CBF25 /* MockURLProtocol.swift in Sources */,
 				A38272BE2B17C426009CBF25 /* readJSONFile.swift in Sources */,
 				A38272C02B17C4BA009CBF25 /* HTTPURLResponse+mockResponse.swift in Sources */,

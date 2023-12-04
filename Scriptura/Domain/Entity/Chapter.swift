@@ -8,7 +8,8 @@
 import Foundation
 
 struct Chapter {
-    let book: Book
+    let book: String
+    let version: String
     let number: Int
     let numberOfVerses: Int
     let verses: [Verse]

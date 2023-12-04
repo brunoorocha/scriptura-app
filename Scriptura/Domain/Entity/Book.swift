@@ -13,4 +13,5 @@ struct Book {
     let numberOfChapters: Int
     let group: String
     let testament: String
+    let abbreviation: String
 }

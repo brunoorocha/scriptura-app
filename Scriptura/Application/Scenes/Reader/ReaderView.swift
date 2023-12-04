@@ -25,7 +25,7 @@ struct ReaderView: View {
                     .padding(.vertical, 40)
 
                     ForEach(viewModel.verses) { verse in
-                        HStack {
+                        HStack(alignment: .top) {
                             Text(verse.number)
                                 .font(.caption)
                                 .foregroundColor(.gray)
@@ -43,7 +43,7 @@ struct ReaderView: View {
             }
             .sheet(isPresented: $viewModel.isSelectingChapter) {
                 BooksView(
-                    viewModel: BooksViewModel(repository: MockBooksRepository()),
+                    viewModel: BooksViewModel(repository: APIBookRepository()),
                     onSelect: { bookName, chapter in
                         Task {
                             await viewModel.didSelectChapter(chapter, fromBook: bookName)
@@ -60,6 +60,6 @@ struct ReaderView: View {
 
 struct ReaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderView(viewModel: ReaderViewModel(chapterRepository: MockChapterRepository(), bookRepository: MockBooksRepository()))
+        ReaderView(viewModel: ReaderViewModel(chapterRepository: APIChapterRepository(), bookRepository: MockBooksRepository()))
     }
 }

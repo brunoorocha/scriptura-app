@@ -10,7 +10,7 @@ import XCTest
 
 extension Book {
     static func mock(named name: String) -> Book {
-        .init(name: name, author: "Moisés", numberOfChapters: 50, group: "Pentatêuco", testament: "VT")
+        .init(name: name, author: "Moisés", numberOfChapters: 50, group: "Pentatêuco", testament: "VT", abbreviation: "gn")
     }
 }
 

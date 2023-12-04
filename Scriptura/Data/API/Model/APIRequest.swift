@@ -23,7 +23,7 @@ extension APIRequest {
 }
 
 extension APIService {
-    func apiRequest<T: Decodable>(_ request: APIRequest) async throws -> T {
+    func request<T: Decodable>(_ request: APIRequest) async throws -> T {
         guard let urlRequest = request.urlRequest else {
             throw Error.invalidRequest
         }
