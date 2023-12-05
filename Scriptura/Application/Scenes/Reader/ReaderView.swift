@@ -14,15 +14,9 @@ struct ReaderView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Button(action: {
-                        viewModel.selectChapter()
-                    }, label: {
-                        Label(viewModel.headerText, systemImage: "")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.primary)
-                    })
-                    .padding(.vertical, 40)
+                    Text(viewModel.headerText)
+                        .font(AppFonts.Merriweather.black(size: 32).font)
+                        .padding(.vertical, 40)
 
                     ForEach(viewModel.verses) { verse in
                         HStack(alignment: .top) {
@@ -30,11 +24,24 @@ struct ReaderView: View {
                                 .font(.caption)
                                 .foregroundColor(.gray)
                             Text(verse.text)
+                                .font(AppFonts.Merriweather.light(size: 16).font)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 .padding()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Button {
+                        viewModel.selectChapter()
+                    } label: {
+                        Label(viewModel.headerText, systemImage: "chevron.down")
+                            .foregroundColor(.primary)
+                            .labelStyle(.iconAtRight)
+                    }
+                }
             }
             .onAppear {
                 Task {
@@ -43,7 +50,7 @@ struct ReaderView: View {
             }
             .sheet(isPresented: $viewModel.isSelectingChapter) {
                 BooksView(
-                    viewModel: BooksViewModel(repository: APIBookRepository()),
+                    viewModel: BooksViewModel(repository: MockBooksRepository()),
                     onSelect: { bookName, chapter in
                         Task {
                             await viewModel.didSelectChapter(chapter, fromBook: bookName)
@@ -60,6 +67,6 @@ struct ReaderView: View {
 
 struct ReaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderView(viewModel: ReaderViewModel(chapterRepository: APIChapterRepository(), bookRepository: MockBooksRepository()))
+        ReaderView(viewModel: ReaderViewModel(chapterRepository: MockChapterRepository(), bookRepository: MockBooksRepository()))
     }
 }

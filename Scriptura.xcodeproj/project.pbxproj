@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		A36958222B1E3E430002BDDF /* verses.json in Resources */ = {isa = PBXBuildFile; fileRef = A36958212B1E3E430002BDDF /* verses.json */; };
 		A36958242B1E3E920002BDDF /* APIChapterRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36958232B1E3E920002BDDF /* APIChapterRepositoryTests.swift */; };
+		A369582B2B1E73640002BDDF /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A369582A2B1E73640002BDDF /* AppFonts.swift */; };
+		A369582C2B1E75710002BDDF /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A36958272B1E6F8C0002BDDF /* Merriweather-Black.ttf */; };
+		A369582D2B1E75710002BDDF /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A36958282B1E6F9D0002BDDF /* Merriweather-Regular.ttf */; };
+		A369582F2B1E75E60002BDDF /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A369582E2B1E75E60002BDDF /* Merriweather-Light.ttf */; };
+		A36958322B1FB8970002BDDF /* InvertedIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36958312B1FB8970002BDDF /* InvertedIconLabel.swift */; };
 		A382729C2B175926009CBF25 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729B2B175926009CBF25 /* ReaderViewModel.swift */; };
 		A382729E2B175E90009CBF25 /* ChapterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729D2B175E90009CBF25 /* ChapterRepository.swift */; };
 		A38272A02B175F12009CBF25 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729F2B175F12009CBF25 /* Chapter.swift */; };
@@ -66,6 +71,12 @@
 /* Begin PBXFileReference section */
 		A36958212B1E3E430002BDDF /* verses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verses.json; sourceTree = "<group>"; };
 		A36958232B1E3E920002BDDF /* APIChapterRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChapterRepositoryTests.swift; sourceTree = "<group>"; };
+		A36958272B1E6F8C0002BDDF /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
+		A36958282B1E6F9D0002BDDF /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
+		A36958292B1E6FFF0002BDDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A369582A2B1E73640002BDDF /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		A369582E2B1E75E60002BDDF /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
+		A36958312B1FB8970002BDDF /* InvertedIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedIconLabel.swift; sourceTree = "<group>"; };
 		A382729B2B175926009CBF25 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
 		A382729D2B175E90009CBF25 /* ChapterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterRepository.swift; sourceTree = "<group>"; };
 		A382729F2B175F12009CBF25 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
@@ -131,6 +142,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A36958252B1E6F370002BDDF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A36958262B1E6F3D0002BDDF /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A36958262B1E6F3D0002BDDF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A36958272B1E6F8C0002BDDF /* Merriweather-Black.ttf */,
+				A36958282B1E6F9D0002BDDF /* Merriweather-Regular.ttf */,
+				A369582E2B1E75E60002BDDF /* Merriweather-Light.ttf */,
+				A369582A2B1E73640002BDDF /* AppFonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A36958302B1FB87B0002BDDF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A36958312B1FB8970002BDDF /* InvertedIconLabel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		A38272AB2B17A42A009CBF25 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +279,7 @@
 		A3AD4C162B164B9100FDDAB0 /* Scriptura */ = {
 			isa = PBXGroup;
 			children = (
+				A36958292B1E6FFF0002BDDF /* Info.plist */,
 				A3AD4C432B164BB000FDDAB0 /* Application */,
 				A3AD4C422B164B9F00FDDAB0 /* Domain */,
 				A3AD4C412B164B9800FDDAB0 /* Data */,
@@ -300,6 +339,8 @@
 		A3AD4C432B164BB000FDDAB0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				A36958302B1FB87B0002BDDF /* Components */,
+				A36958252B1E6F370002BDDF /* Resources */,
 				A38272C72B1A01D5009CBF25 /* Scenes */,
 			);
 			path = Application;
@@ -497,8 +538,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A369582C2B1E75710002BDDF /* Merriweather-Black.ttf in Resources */,
+				A369582D2B1E75710002BDDF /* Merriweather-Regular.ttf in Resources */,
 				A3AD4C1F2B164B9200FDDAB0 /* Preview Assets.xcassets in Resources */,
 				A3AD4C1C2B164B9200FDDAB0 /* Assets.xcassets in Resources */,
+				A369582F2B1E75E60002BDDF /* Merriweather-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,8 +580,10 @@
 				A38272A82B1769B5009CBF25 /* ReaderVerseItem.swift in Sources */,
 				A3AD4C1A2B164B9100FDDAB0 /* ContentView.swift in Sources */,
 				A3AD4C5A2B16520300FDDAB0 /* BookListItem.swift in Sources */,
+				A369582B2B1E73640002BDDF /* AppFonts.swift in Sources */,
 				A3AD4C4C2B164E2B00FDDAB0 /* BookRepository.swift in Sources */,
 				A38272CE2B1BC992009CBF25 /* VersesAPIRequest.swift in Sources */,
+				A36958322B1FB8970002BDDF /* InvertedIconLabel.swift in Sources */,
 				A38272A62B17688E009CBF25 /* MockChapterRepository.swift in Sources */,
 				A38272A22B176013009CBF25 /* Verse.swift in Sources */,
 				A38272A42B1761FE009CBF25 /* Chapter+Decodable.swift in Sources */,
@@ -715,6 +761,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Scriptura/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Scriptura/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -743,6 +790,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Scriptura/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Scriptura/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
