@@ -14,6 +14,9 @@
 		A369582D2B1E75710002BDDF /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A36958282B1E6F9D0002BDDF /* Merriweather-Regular.ttf */; };
 		A369582F2B1E75E60002BDDF /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A369582E2B1E75E60002BDDF /* Merriweather-Light.ttf */; };
 		A36958322B1FB8970002BDDF /* InvertedIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36958312B1FB8970002BDDF /* InvertedIconLabel.swift */; };
+		A36958352B1FBBE40002BDDF /* ReaderSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36958342B1FBBE40002BDDF /* ReaderSettingsView.swift */; };
+		A36958372B1FBBEF0002BDDF /* ReaderSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36958362B1FBBEF0002BDDF /* ReaderSettingsViewModel.swift */; };
+		A36958392B1FCBC90002BDDF /* ReaderSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36958382B1FCBC90002BDDF /* ReaderSettings.swift */; };
 		A382729C2B175926009CBF25 /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729B2B175926009CBF25 /* ReaderViewModel.swift */; };
 		A382729E2B175E90009CBF25 /* ChapterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729D2B175E90009CBF25 /* ChapterRepository.swift */; };
 		A38272A02B175F12009CBF25 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A382729F2B175F12009CBF25 /* Chapter.swift */; };
@@ -77,6 +80,9 @@
 		A369582A2B1E73640002BDDF /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		A369582E2B1E75E60002BDDF /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
 		A36958312B1FB8970002BDDF /* InvertedIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedIconLabel.swift; sourceTree = "<group>"; };
+		A36958342B1FBBE40002BDDF /* ReaderSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSettingsView.swift; sourceTree = "<group>"; };
+		A36958362B1FBBEF0002BDDF /* ReaderSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSettingsViewModel.swift; sourceTree = "<group>"; };
+		A36958382B1FCBC90002BDDF /* ReaderSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderSettings.swift; sourceTree = "<group>"; };
 		A382729B2B175926009CBF25 /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
 		A382729D2B175E90009CBF25 /* ChapterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterRepository.swift; sourceTree = "<group>"; };
 		A382729F2B175F12009CBF25 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
@@ -169,6 +175,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		A36958332B1FBBD20002BDDF /* ReaderSettings */ = {
+			isa = PBXGroup;
+			children = (
+				A36958342B1FBBE40002BDDF /* ReaderSettingsView.swift */,
+				A36958362B1FBBEF0002BDDF /* ReaderSettingsViewModel.swift */,
+				A36958382B1FCBC90002BDDF /* ReaderSettings.swift */,
+			);
+			path = ReaderSettings;
+			sourceTree = "<group>";
+		};
 		A38272AB2B17A42A009CBF25 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +258,7 @@
 		A38272C72B1A01D5009CBF25 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A36958332B1FBBD20002BDDF /* ReaderSettings */,
 				A3AD4C5B2B1690AC00FDDAB0 /* Reader */,
 				A3AD4C532B1650A900FDDAB0 /* Books */,
 			);
@@ -589,11 +606,14 @@
 				A38272A42B1761FE009CBF25 /* Chapter+Decodable.swift in Sources */,
 				A38272A02B175F12009CBF25 /* Chapter.swift in Sources */,
 				A38272CC2B1BC520009CBF25 /* APIChapterRepository.swift in Sources */,
+				A36958372B1FBBEF0002BDDF /* ReaderSettingsViewModel.swift in Sources */,
 				A3AD4C552B1650BA00FDDAB0 /* BooksView.swift in Sources */,
 				A3AD4C182B164B9100FDDAB0 /* ScripturaApp.swift in Sources */,
 				A3AD4C522B16500200FDDAB0 /* MockBooksRepository.swift in Sources */,
 				A3AD4C472B164BF800FDDAB0 /* Book.swift in Sources */,
 				A38272B12B17A8FA009CBF25 /* APIRequest.swift in Sources */,
+				A36958392B1FCBC90002BDDF /* ReaderSettings.swift in Sources */,
+				A36958352B1FBBE40002BDDF /* ReaderSettingsView.swift in Sources */,
 				A382729C2B175926009CBF25 /* ReaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReaderView: View {
     @StateObject var viewModel: ReaderViewModel
+    @StateObject var readerSettings: ReaderSettingsViewModel
 
     var body: some View {
         NavigationStack {
@@ -24,7 +25,7 @@ struct ReaderView: View {
                                 .font(.caption)
                                 .foregroundColor(.gray)
                             Text(verse.text)
-                                .font(AppFonts.Merriweather.light(size: 16).font)
+                                .font(AppFonts.Merriweather.light(size: readerSettings.fontSize).font)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -35,11 +36,21 @@ struct ReaderView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Button {
-                        viewModel.selectChapter()
+                        viewModel.isSelectingChapter = true
                     } label: {
                         Label(viewModel.headerText, systemImage: "chevron.down")
                             .foregroundColor(.primary)
                             .labelStyle(.iconAtRight)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel.isChangingReaderSettings = true
+                    } label: {
+                        Label("", systemImage: "textformat")
+                            .foregroundColor(.primary)
+                            .labelStyle(.iconOnly)
                     }
                 }
             }
@@ -50,7 +61,7 @@ struct ReaderView: View {
             }
             .sheet(isPresented: $viewModel.isSelectingChapter) {
                 BooksView(
-                    viewModel: BooksViewModel(repository: MockBooksRepository()),
+                    viewModel: BooksViewModel(repository: APIBookRepository()),
                     onSelect: { bookName, chapter in
                         Task {
                             await viewModel.didSelectChapter(chapter, fromBook: bookName)
@@ -61,12 +72,26 @@ struct ReaderView: View {
                     }
                 )
             }
+            .sheet(isPresented: $viewModel.isChangingReaderSettings) {
+                ReaderSettingsView(viewModel: readerSettings)
+                    .presentationDetents([
+                        .fraction(0.2),
+                    ])
+                    .presentationDragIndicator(.visible)
+            }
         }
     }
 }
 
 struct ReaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderView(viewModel: ReaderViewModel(chapterRepository: MockChapterRepository(), bookRepository: MockBooksRepository()))
+        ReaderView(
+            viewModel:
+                ReaderViewModel(
+                    chapterRepository: MockChapterRepository(),
+                    bookRepository: MockBooksRepository()
+                ),
+            readerSettings: ReaderSettingsViewModel()
+        )
     }
 }

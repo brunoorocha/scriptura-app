@@ -13,6 +13,7 @@ class ReaderViewModel: ObservableObject {
     private let bookRepository: BookRepository
 
     @Published var isSelectingChapter = false
+    @Published var isChangingReaderSettings = false
     @Published var headerText = "Gênesis 1"
     @Published var verses = [ReaderVerseItem]()
     
@@ -23,10 +24,6 @@ class ReaderViewModel: ObservableObject {
     
     func loadFromLastRead() async {
         await setChapter(1, fromBook: "Gênesis")
-    }
-    
-    func selectChapter() {
-        isSelectingChapter = true
     }
     
     func didSelectChapter(_ chapterNumber: Int, fromBook book: String) async {
