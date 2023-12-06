@@ -8,9 +8,9 @@
 import Foundation
 
 class ReaderSettingsViewModel: ObservableObject {
-    @Published var fontSize: CGFloat
+    @Published var settings: ReaderSettings
     
-    init(fontSize: CGFloat = 16) {
-        self.fontSize = fontSize
+    init() {
+        self.settings = ReaderSettings(paragraphFontSize: 16)
     }
 }

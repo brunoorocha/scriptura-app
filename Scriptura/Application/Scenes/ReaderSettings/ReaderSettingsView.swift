@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReaderSettingsView: View {
-    @StateObject var viewModel: ReaderSettingsViewModel
+    @EnvironmentObject var viewModel: ReaderSettingsViewModel
 
     var body: some View {
         NavigationStack {
@@ -16,9 +16,9 @@ struct ReaderSettingsView: View {
                 Text("Tamanho da fonte")
                     .font(.headline)
                 Slider(
-                    value: $viewModel.fontSize,
+                    value: $viewModel.settings.paragraphFontSize,
                     in: (12...32),
-                    step: 4,
+                    step: 2,
                     label: {
                         Text("Tamanho da fonte")
                     },
@@ -41,6 +41,7 @@ struct ReaderSettingsView: View {
 
 struct ReaderSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderSettingsView(viewModel: ReaderSettingsViewModel())
+        ReaderSettingsView()
+            .environmentObject(ReaderSettingsViewModel())
     }
 }

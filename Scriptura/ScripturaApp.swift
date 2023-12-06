@@ -15,9 +15,9 @@ struct ScripturaApp: App {
                 viewModel: ReaderViewModel(
                     chapterRepository: APIChapterRepository(),
                     bookRepository: APIBookRepository()
-                ),
-                readerSettings: ReaderSettingsViewModel()
+                )
             )
+            .environmentObject(ReaderSettingsViewModel())
         }
     }
 }

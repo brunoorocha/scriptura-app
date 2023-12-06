@@ -10,7 +10,7 @@ import SwiftUI
 struct BookListItemView: View {
     @State var book: BookListItem
     
-    var isCollapsed = true
+    @State var isCollapsed = true
 
     var didSelectBook: (BookListItem) -> Void
 
@@ -31,14 +31,18 @@ struct BookListItemView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text(book.name)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Label("", systemImage: iconName)
-            }
-            .padding(16)
-            .onTapGesture {
+            Button {
                 didSelectBook(book)
+                isCollapsed.toggle()
+            } label: {
+                HStack {
+                    Text(book.name)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Label("", systemImage: iconName)
+                }
+                .padding(16)
+                .foregroundColor(.primary)
+                .animation(.none, value: isCollapsed)
             }
 
             if !isCollapsed {

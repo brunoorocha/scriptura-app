@@ -9,29 +9,59 @@ import SwiftUI
 
 struct ReaderView: View {
     @StateObject var viewModel: ReaderViewModel
-    @StateObject var readerSettings: ReaderSettingsViewModel
+    @EnvironmentObject var readerSettings: ReaderSettingsViewModel
+    @State var viewXOffset = CGFloat.zero
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
-                    Text(viewModel.headerText)
-                        .font(AppFonts.Merriweather.black(size: 32).font)
-                        .padding(.vertical, 40)
-
-                    ForEach(viewModel.verses) { verse in
-                        HStack(alignment: .top) {
-                            Text(verse.number)
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text(verse.text)
-                                .font(AppFonts.Merriweather.light(size: readerSettings.fontSize).font)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                ZStack {
+                    HStack {
+                        Label("", systemImage: "chevron.left")
+                            .offset(x: 4)
+                            .frame(width: 40, height: 40)
+                            .background(Color.primary.opacity(0.1))
+                            .cornerRadius(40)
+                            .fontWeight(.medium)
+                            .offset(x: viewXOffset >= 0 ? viewXOffset * 0.2 : .zero)
+                            .opacity(viewXOffset >= 0 ? viewXOffset / 50 : .zero)
+                            .animation(.easeOut, value: viewXOffset)
+                        Spacer()
+                        Label("", systemImage: "chevron.right")
+                            .offset(x: 4)
+                            .frame(width: 40, height: 40)
+                            .background(Color.primary.opacity(0.1))
+                            .cornerRadius(40)
+                            .fontWeight(.medium)
+                            .offset(x: viewXOffset <= 0 ? viewXOffset * 0.2 : .zero)
+                            .opacity(viewXOffset <= 0 ? (abs(viewXOffset) / CGFloat(50)) : .zero)
+                            .animation(.easeOut, value: viewXOffset)
                     }
+
+                    VStack {
+                        Text(viewModel.headerText)
+                            .font(AppFonts.Merriweather.black(size: readerSettings.settings.titleFontSize).font)
+                            .padding(.vertical, readerSettings.settings.titleFontSize)
+                        
+                        ForEach(viewModel.verses) { verse in
+                            HStack(alignment: .top) {
+                                Text(verse.number)
+                                    .font(AppFonts.Merriweather.light(size: readerSettings.settings.verseFontSize).font)
+                                    .foregroundColor(.gray)
+                                Text(verse.text)
+                                    .font(AppFonts.Merriweather.light(size: readerSettings.settings.paragraphFontSize).font)
+                                    .lineSpacing(readerSettings.settings.paragraphSpacing)
+                                    .padding(.bottom, readerSettings.settings.paragraphSpacing)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                    }
+                    .padding()
+                    .offset(x: viewXOffset)
+                    .animation(.easeOut, value: viewXOffset)
                 }
-                .padding()
             }
+            .gesture(dragGesture)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -73,7 +103,7 @@ struct ReaderView: View {
                 )
             }
             .sheet(isPresented: $viewModel.isChangingReaderSettings) {
-                ReaderSettingsView(viewModel: readerSettings)
+                ReaderSettingsView()
                     .presentationDetents([
                         .fraction(0.2),
                     ])
@@ -81,17 +111,62 @@ struct ReaderView: View {
             }
         }
     }
+    
+    var dragGesture: some Gesture {
+        DragGesture()
+            .onChanged {
+                onDragGestureChange(translation: $0.translation)
+            }
+            .onEnded {
+                onDragGestureEnd(translation: $0.translation)
+            }
+    }
+    
+    func onDragGestureChange(translation: CGSize) {
+        let maxXOffset = CGFloat(50)
+        if translation.width < 0 {
+            let value = max(translation.width, (maxXOffset * -1))
+            viewXOffset = value
+            return
+        }
+        let value = min(translation.width, maxXOffset)
+        viewXOffset = value
+    }
+    
+    func onDragGestureEnd(translation: CGSize) {
+        viewXOffset = .zero
+        if translation.width >= 50 {
+            viewModel.goToPreviousChapter()
+            return
+        }
+        if translation.width <= -50 {
+            viewModel.goToNextChapter()
+            return
+        }
+    }
 }
 
 struct ReaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReaderView(
-            viewModel:
-                ReaderViewModel(
-                    chapterRepository: MockChapterRepository(),
-                    bookRepository: MockBooksRepository()
-                ),
-            readerSettings: ReaderSettingsViewModel()
-        )
+        Group {
+            ReaderView(
+                viewModel:
+                    ReaderViewModel(
+                        chapterRepository: MockChapterRepository(),
+                        bookRepository: MockBooksRepository()
+                    )
+            )
+            .environmentObject(ReaderSettingsViewModel())
+            
+            ReaderView(
+                viewModel:
+                    ReaderViewModel(
+                        chapterRepository: MockChapterRepository(),
+                        bookRepository: MockBooksRepository()
+                    )
+            )
+            .preferredColorScheme(.dark)
+            .environmentObject(ReaderSettingsViewModel())
+        }
     }
 }

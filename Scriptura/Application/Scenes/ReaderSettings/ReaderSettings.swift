@@ -8,5 +8,21 @@
 import Foundation
 
 struct ReaderSettings {
-    let fontSize: CGFloat
+    var paragraphFontSize: CGFloat
+
+    var titleFontSize: CGFloat {
+        paragraphFontSize * 1.6
+    }
+
+    var verseFontSize: CGFloat {
+        paragraphFontSize * 0.7
+    }
+
+    var paragraphLineSpacing: CGFloat {
+        paragraphFontSize * 0.4
+    }
+    
+    var paragraphSpacing: CGFloat {
+        paragraphFontSize * 0.3
+    }
 }
